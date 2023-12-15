@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (resquest, response) => {
   response.send(`
     <!DOCTYPE html>
@@ -29,11 +31,12 @@ app.listen(3000, () => {
 });
 
 app.post('/', (resquest, response) => {
-  response.send('ok');
+  console.log('post', resquest.body);
+  response.send(resquest.body.campo);
 });
 
 app.get('/test/:id?/:nameUser?', (resquest, response) => {
-  console.log(resquest.params);
+  console.log('get', resquest.params);
   console.log(resquest.query, 'query');
   response.send('test');
 });
