@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (request, response) => {
-  response.send('hello');
-});
+const routes = require('./routes');
 
-app.listen(3000, (req, res) => {
+app.use(express.urlencoded({ extended: true }));
+app.use(routes);
+
+app.listen(3000, () => {
   console.log('http://localhost:3000');
 });
