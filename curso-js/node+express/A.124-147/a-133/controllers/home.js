@@ -22,3 +22,5 @@ exports.homePage = (req, res) => {
 exports.managePublication = (req, res) => {
   res.send('router home');
 };
+
+exports.manageContact = (req, res) => {};
