@@ -1,0 +1,1 @@
+{"version":3,"file":"bundle.js","mappings":"AAAAA,MAAM","sources":["webpack://116.webpackboilerplate/./src/index.js"],"sourcesContent":["alert('ns');\n"],"names":["alert"],"sourceRoot":""}

@@ -1,26 +1,53 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-const routers = require('./router');
-
-app.use(
-  express.static(
-    '/home/m4rc3l0/dev/estudos-js/curso-js/node+express/A.124-147/a-136/public'
-  )
-);
 
 app.use(express.urlencoded({ extended: true }));
-app.use(routers);
 
-app.set(
-  'views',
-  path.resolve(
-    '/home/m4rc3l0/dev/estudos-js/curso-js/node+express/A.124-147/a-136/src/views'
-  )
-);
+app.get('/', (req, res) => {
+  res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Simples</title>
+</head>
+<body>
 
-app.set('view engine', 'ejs');
+    <h1>Formulário Simples</h1>
 
-app.listen(3000, () => {
-  console.log('http://localhost:3000');
+    <form action="/" method="post">
+        <!-- Campo de texto para o nome -->
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <br>
+
+        <!-- Campo de e-mail -->
+        <label for="email"Corno>E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <br>
+
+        <!-- Botão de envio -->
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+</html>
+`);
+});
+
+app.post('/', (req, res) => {
+  console.log(req.body);
+  res.send('opaaaaaa');
+});
+
+app.get('/contact/:id?/:param?', (req, res) => {
+  console.log(req.query, 'query');
+  console.log(req.params);
+  res.send('contact');
+});
+
+app.listen(3003, () => {
+  console.log('http://localhost:3003');
 });
