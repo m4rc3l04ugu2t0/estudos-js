@@ -22125,10 +22125,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
 
 
-alert('bb');
-document.write('slaaaaaaa');
-alert('dd');
-console.log('snksnkn');
+console.log('Hellp Word');
 })();
 
 /******/ })()
