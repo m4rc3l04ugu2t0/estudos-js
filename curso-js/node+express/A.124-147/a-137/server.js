@@ -23,3 +23,5 @@ app.use(routes);
 app.listen(3003, () => {
   console.log('Servidor rodando na porta 3003');
 });
+// mGU2kEq085RVsOgd;
+// mongodb+srv://marcelo014:<password>@cluster0.90iae2x.mongodb.net/?retryWrites=true&w=majority
