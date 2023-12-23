@@ -1,12 +1,19 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const connectString =
-  'mongodb+srv://probut07:A2k4CBlqIBJMELXb@cluster0.xqw5uio.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(connectString).then(() => {
-  console.log('foi kkkkk');
-  app.emit('okay');
-});
+const connectString = `mongodb+srv://probut07:${process.env.CONNECTIONSTRING}@cluster0.xqw5uio.mongodb.net/?retryWrites=true&w=majority`;
+
+mongoose
+  .connect(connectString)
+  .then(() => {
+    console.log('foi kkkkk');
+    app.emit('okay');
+  })
+  .catch((e) => {
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+  });
 
 // , {
 //   useNewUrlParser: true,
@@ -40,4 +47,4 @@ app.on('okay', () => {
 });
 
 // mGU2kEq085RVsOgd;
-// mongodb+srv://marcelo014:<password>@cluster0.90iae2x.mongodb.net/?retryWrites=true&w=majority
+// mongodb+srv://probut07:A2k4CBlqIBJMELXb@cluster0.xqw5uio.mongodb.net/?retryWrites=true&w=majority
