@@ -15,10 +15,9 @@ mongoose
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
   });
 
-// , {
-//   useNewUrlParser: true,
-//   useUinifiedTopology: true,
-// }
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
 
 const path = require('path');
 const routes = require('./router');
@@ -33,6 +32,20 @@ app.use(
     'Content-Type': 'application/javascript',
   })
 );
+
+const sessionOptions = session({
+  secret: 'opa',
+  store: MongoStore.create({ mongoUrl: process.env.CONNECTIONSTRING }), // Corrigido aqui
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+    httpOnly: true,
+  },
+});
+
+app.use(sessionOptions);
+app.use(flash());
 
 app.set('views', path.resolve(__dirname, 'src', 'views'));
 app.set('view engine', 'ejs');
